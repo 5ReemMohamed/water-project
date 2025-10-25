@@ -1,70 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const phone = document.getElementById("phone");
-  const message = document.getElementById("message");
+
 
   const navbar = document.querySelector(".navbar");
   const navLinks = document.querySelectorAll(".nav-link");
   const navbarToggler = document.querySelector(".navbar-toggler");
   const navbarCollapse = document.querySelector(".navbar-collapse");
 
-  const fields = [
-    { element: name, regex: /^[\u0600-\u06FFa-zA-Z\s]{3,}$/, emptyMsg: "الاسم لا يجب أن يكون فارغًا", invalidMsg: "الاسم يجب أن يحتوي على أحرف فقط" },
-    { element: email, regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, emptyMsg: "البريد الإلكتروني مطلوب", invalidMsg: "الرجاء إدخال بريد إلكتروني صالح" },
-    { element: phone, regex: /^(\+?\d{9,15})$/, emptyMsg: "رقم الهاتف مطلوب", invalidMsg: "الرجاء إدخال رقم هاتف صالح" },
-    { element: message, regex: /.+/, emptyMsg: "الرجاء كتابة رسالتك", invalidMsg: "" }
-  ];
 
-  function validateField(field) {
-    const value = field.element.value.trim();
-    const errorElement = field.element.nextElementSibling;
 
-    if (value === "") {
-      errorElement.textContent = field.emptyMsg;
-      return false;
-    } else if (!field.regex.test(value)) {
-      errorElement.textContent = field.invalidMsg;
-      return false;
-    } else {
-      errorElement.textContent = "";
-      return true;
-    }
-  }
-
-  fields.forEach(field => {
-    field.element.addEventListener("input", () => validateField(field));
-  });
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    let isValid = true;
-
-    fields.forEach(field => {
-      if (!validateField(field)) isValid = false;
-    });
-
-    if (isValid) {
-      const phoneNumber = "966564385106";
-      const text =
-        `الاسم: ${name.value}%0A` +
-        `البريد: ${email.value}%0A` +
-        `الجوال: ${phone.value}%0A` +
-        `الرسالة: ${message.value}`;
-
-      window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
-
-      Swal.fire({
-        title: "تم الإرسال!",
-        text: "تم إرسال رسالتك بنجاح عبر الواتساب.",
-        icon: "success",
-        confirmButtonText: "حسناً"
-      }).then(() => {
-        form.reset();
-      });
-    }
-  });
+ 
 
   window.addEventListener("scroll", function () {
     if (window.scrollY > 10) {
@@ -162,4 +106,22 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth"
       });
     });
+    const ratingValue = 4.8; // Change this number
+    const starContainer = document.getElementById("stars");
+
+    const fullStars = Math.floor(ratingValue);
+    const hasHalfStar = ratingValue % 1 >= 0.5;
+
+    for (let i = 0; i < fullStars; i++) {
+      starContainer.innerHTML += '<i class="fa-solid fa-star"></i>';
+    }
+
+    if (hasHalfStar) {
+      starContainer.innerHTML += '<i class="fa-regular fa-star-half-stroke"></i>';
+    }
+
+    const totalStars = fullStars + (hasHalfStar ? 1 : 0);
+    for (let i = totalStars; i < 5; i++) {
+      starContainer.innerHTML += '<i class="fa-regular fa-star"></i>';
+    }
 });
