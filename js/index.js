@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth"
       });
     });
-    const ratingValue = 4.8; // Change this number
+    const ratingValue = 4.8; 
     const starContainer = document.getElementById("stars");
 
     const fullStars = Math.floor(ratingValue);

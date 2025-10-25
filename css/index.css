@@ -61,8 +61,11 @@ html{
 .navbar .navbar-collapse.show .nav-link {
   color: #1c71d5 !important;
 }
-
-
+ 
+.navbar.scrolled-nav .nav-phone,.navbar .navbar-collapse.show .nav-phone{
+  background-color: #1c71d5;
+  color: white;
+}
 .navbar.scrolled-nav .navbar-brand,
 .navbar .navbar-collapse.show .navbar-brand {
   color: #1c71d5 !important;
@@ -116,7 +119,7 @@ html{
       font-size: 1.2rem;
     }
     .stars {
-      color: #FFD700; /* gold */
+      color: #FFD700; 
       position: relative;
       display: inline-block;
       font-size: 1.2rem;
@@ -230,36 +233,7 @@ html{
   line-height: 1.4;
 }
 
-.circle-img {
-  display: inline-block;
- height: 100%;
-  overflow: hidden;
-    border-radius: 70px 70px 0px 0px; 
-      
-  margin: 0 10px;
-}
 
-.circle-img img {
- width: 118px;
-    height: 86px;
-    object-fit: cover;
-    object-position: center center;
-}
-
-.highlight {
-  background: #1e40af;
-  color: #fff;
-  padding: 5px 20px;
-  border-radius: 5px;
-  display: inline-block;
-  margin-right: 10px;
-}
-.second-image{
-        width: 118px;
-    height: 65px;
-    border-radius: 0px 50px 50px 0px;
-    vertical-align: middle;
-}
 .water-bg {
   position: absolute;
   top: 0;
@@ -574,25 +548,7 @@ html{
       font-weight: 700;
     }
   
-    .footer-social a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 45px;
-      height: 45px;
-      background-color: #fff;
-      color: #192D74;
-      border-radius: 50%;
-      margin-right: 10px;
-      font-size: 18px;
-      transition: all 0.5s ease-in-out;
-    }
-    .footer-social a:hover {
-      background-color: #5dbcdf;
-      color: #fff;
-        font-weight: 700;
     
-    }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.2);
       text-align: center;
